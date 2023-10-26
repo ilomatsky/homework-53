@@ -1,6 +1,16 @@
-import React from "react";
+import React, {ChangeEvent} from 'react';
 
-const AddTaskForm = ({ currentTask, handleInputChange, handleAddTask }) => {
+interface AddTaskFormProps {
+  currentTask: string;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleAddTask: () => void;
+}
+
+const AddTaskForm: React.FC<AddTaskFormProps> = ({
+                                             currentTask,
+                                             handleInputChange,
+                                             handleAddTask,
+                                           }) => {
   return (
     <div>
       <input

@@ -1,6 +1,11 @@
-import React from "react";
+import { FC } from "react";
 
-const Task = ({ task, handleDeleteTask }) => {
+interface TaskProps {
+  task: { id: string; text: string };
+  handleDeleteTask: (id: string) => void;
+}
+
+const Task: FC<TaskProps> = ({ task, handleDeleteTask }) => {
   return (
     <div>
       {task.text}
