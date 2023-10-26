@@ -1,6 +1,7 @@
-import { useState, ChangeEvent, FC } from "react";
-import AddTaskForm from "./AddTaskForm";
-import Task from "./Task";
+import {useState, ChangeEvent, FC} from 'react';
+import AddTaskForm from './AddTaskForm';
+import Task from './Task';
+import './App.css';
 
 interface TaskItem {
   id: string;
@@ -9,20 +10,21 @@ interface TaskItem {
 
 const App: FC = () => {
   const [tasks, setTasks] = useState<TaskItem[]>([
-    { id: "1", text: "Пример задачи 1" },
-    { id: "2", text: "Пример задачи 2" },
+    {id: '1', text: 'Example of a task 1'},
+    {id: '2', text: 'Example of a task 2'},
+    {id: '3', text: 'Example of a task 3'},
   ]);
-  const [currentTask, setCurrentTask] = useState<string>("");
+  const [currentTask, setCurrentTask] = useState<string>('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCurrentTask(e.target.value);
   };
 
   const handleAddTask = () => {
-    if (currentTask.trim() === "") return;
-    const newTask: TaskItem = { id: Date.now().toString(), text: currentTask };
+    if (currentTask.trim() === '') return;
+    const newTask: TaskItem = {id: Date.now().toString(), text: currentTask};
     setTasks([...tasks, newTask]);
-    setCurrentTask("");
+    setCurrentTask('');
   };
 
   const handleDeleteTask = (taskId: string) => {
@@ -31,15 +33,14 @@ const App: FC = () => {
   };
 
   return (
-    <div>
-      <h1>ToDo List</h1>
+    <div className='App'>
       <AddTaskForm
         currentTask={currentTask}
         handleInputChange={handleInputChange}
         handleAddTask={handleAddTask}
       />
       {tasks.map((task) => (
-        <Task key={task.id} task={task} handleDeleteTask={handleDeleteTask} />
+        <Task key={task.id} task={task} handleDeleteTask={handleDeleteTask}/>
       ))}
     </div>
   );

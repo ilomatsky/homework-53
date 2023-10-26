@@ -1,15 +1,15 @@
-import { FC } from "react";
+import {FC} from 'react';
 
 interface TaskProps {
   task: { id: string; text: string };
   handleDeleteTask: (id: string) => void;
 }
 
-const Task: FC<TaskProps> = ({ task, handleDeleteTask }) => {
+const Task: FC<TaskProps> = ({task, handleDeleteTask}) => {
   return (
-    <div>
+    <div className='Task'>
       {task.text}
-      <button onClick={() => handleDeleteTask(task.id)}>Удалить</button>
+      <button onClick={() => handleDeleteTask(task.id)} type='button' className='deleteBtn'>Delete</button>
     </div>
   );
 };

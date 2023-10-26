@@ -7,19 +7,19 @@ interface AddTaskFormProps {
 }
 
 const AddTaskForm: React.FC<AddTaskFormProps> = ({
-                                             currentTask,
-                                             handleInputChange,
-                                             handleAddTask,
-                                           }) => {
+                                                   currentTask,
+                                                   handleInputChange,
+                                                   handleAddTask,
+                                                 }) => {
   return (
-    <div>
+    <div className='AddTaskForm'>
       <input
         type="text"
         value={currentTask}
         onChange={handleInputChange}
-        placeholder="Введите задачу..."
+        placeholder="Add new task..."
       />
-      <button onClick={handleAddTask}>Добавить</button>
+      <button onClick={handleAddTask} type='button'>Add</button>
     </div>
   );
 };
