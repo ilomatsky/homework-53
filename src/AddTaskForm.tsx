@@ -14,10 +14,10 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
   return (
     <div className='AddTaskForm'>
       <input
-        type="text"
+        type='text'
         value={currentTask}
         onChange={handleInputChange}
-        placeholder="Add new task..."
+        placeholder='Add new task...'
       />
       <button onClick={handleAddTask} type='button'>Add</button>
     </div>
